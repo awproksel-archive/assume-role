@@ -1,21 +1,13 @@
-# This is an example goreleaser.yaml file with some sane defaults.
-# Make sure to check the documentation at http://goreleaser.com
+release:
+  prerelease: true
 before:
   hooks:
-    # you may remove this if you don't use vgo
     - go mod download
-    # you may remove this if you don't need go generate
-    - go generate ./...
 builds:
 - env:
   - CGO_ENABLED=0
 archive:
-  replacements:
-    darwin: Darwin
-    linux: Linux
-    windows: Windows
-    386: i386
-    amd64: x86_64
+  format: tar.gz
 checksum:
   name_template: 'checksums.txt'
 snapshot:
@@ -26,3 +18,10 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+brew:
+  name: assume-role
+  github:
+    owner: awproksel
+    name: homebrew-tap
+  homepage: "https://github.com/awproksel/assume-role/"
+  description: "A convenience CLI for assuming temporary credentials for Amazon Web Services"
