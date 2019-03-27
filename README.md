@@ -58,3 +58,8 @@ In order to contribute to `assume-role` you will need the following installed:
 [Go](https://github.com/golang) - primary language
 
 *  `brew install go` - `go version` should result in `go1.11.5` or higher
+
+# Releasing a new version
+
+We use [goreleaser](https://goreleaser.com/) for packaging and releasing new versions. 
+

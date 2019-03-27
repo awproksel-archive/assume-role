@@ -1,0 +1,28 @@
+
+release:
+  prerelease: true
+before:
+  hooks:
+    - go mod download
+builds:
+- env:
+  - CGO_ENABLED=0
+archive:
+  format: tar.gz
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+brew:
+  name: assume-role
+  github:
+    owner: awproksel
+    name: homebrew-tap
+  homepage: "https://github.com/awproksel/assume-role/"
+  description: "A convenience CLI for assuming temporary credentials for Amazon Web Services"
